@@ -172,6 +172,18 @@
 				</div>
 			</div>
 		</div>
+
+		<footer class="site-footer">
+			<p class="footer-initiative">A Hack Club initiative</p>
+			<p class="footer-legal">
+				The Hack Foundation is a 501(c)(3) non-profit organization d.b.a. Hack Club (EIN: 81-2908499)
+			</p>
+			<p class="footer-links">
+				<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">About Hack Club</a>
+			</p>
+			<p class="footer-note">Dino imagery from rawr.hackclub.com!</p>
+			<p class="footer-credit">By @Ckacha. Open source.</p>
+		</footer>
 	</section>
 {/if}
 
@@ -392,7 +404,7 @@
 	}
 
 	.content-section {
-		background: #496900;
+		background: linear-gradient(180deg, #6A9D2A 0%, #496900 100%);
 		padding: 4rem 2rem;
 	}
 
@@ -427,6 +439,56 @@
 		margin: 0;
 		color: #e8eaed;
 		line-height: 1.7;
+	}
+
+	/* ── Footer ── */
+
+	.site-footer {
+		background: #8492a6;
+		padding: 2.5rem 2rem;
+		text-align: center;
+		color: #fff;
+	}
+
+	.footer-initiative {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+	}
+
+	.footer-legal {
+		margin: 0 0 0.75rem;
+		font-size: 0.78rem;
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.5;
+	}
+
+	.footer-links a {
+		color: #fff;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		font-size: 0.85rem;
+	}
+
+	.footer-links a:hover {
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.footer-links {
+		margin: 0 0 0.75rem;
+	}
+
+	.footer-note {
+		margin: 0 0 0.35rem;
+		font-size: 0.78rem;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.footer-credit {
+		margin: 0;
+		font-size: 0.78rem;
+		color: rgba(255, 255, 255, 0.7);
 	}
 
 	/* ── Keyframes ── */
