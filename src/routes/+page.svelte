@@ -14,8 +14,84 @@
 	let introHidden = $state(false);
 
 	let ignitionAudio: HTMLAudioElement | null = null;
+	let musicAudio: HTMLAudioElement | null = null;
+	let muted = $state(false);
+	let volume = $state(0.5);
+	let musicFadeInterval: ReturnType<typeof setInterval> | null = null;
+	let bonusCat = $state(false);
+	let bonusCatInterval: ReturnType<typeof setInterval> | null = null;
+
+	function startBonusCatChance() {
+		bonusCatInterval = setInterval(() => {
+			if (!bonusCat && Math.random() < 0.005) {
+				bonusCat = true;
+				const pop = new Audio('/media/pop.mp3');
+				pop.volume = muted ? 0 : volume;
+				pop.play().catch(() => {});
+				setTimeout(() => {
+					bonusCat = false;
+				}, 4000);
+			}
+		}, 1000);
+	}
 
 	const STORAGE_KEY = 'the-long-haul-intro-seen';
+
+	function startMusic() {
+		musicAudio = new Audio('/media/music.mp3');
+		musicAudio.volume = 0;
+		musicAudio.loop = false;
+
+		musicAudio.addEventListener('timeupdate', () => {
+			if (!musicAudio) return;
+			const timeLeft = musicAudio.duration - musicAudio.currentTime;
+			// Fade out in last 3 seconds
+			if (timeLeft <= 3 && timeLeft > 0) {
+				musicAudio.volume = Math.max(0, (timeLeft / 3) * (muted ? 0 : volume));
+			}
+		});
+
+		musicAudio.addEventListener('ended', () => {
+			if (!musicAudio) return;
+			musicAudio.currentTime = 0;
+			musicAudio.volume = 0;
+			musicAudio.play().then(() => fadeInMusic()).catch(() => {});
+		});
+
+		musicAudio.play().then(() => fadeInMusic()).catch((e) => {
+			console.error('Music autoplay failed:', e);
+		});
+	}
+
+	function fadeInMusic() {
+		if (!musicAudio) return;
+		let vol = 0;
+		const target = muted ? 0 : volume;
+		if (musicFadeInterval) clearInterval(musicFadeInterval);
+		musicFadeInterval = setInterval(() => {
+			vol += 0.02;
+			if (vol >= target) {
+				vol = target;
+				if (musicFadeInterval) clearInterval(musicFadeInterval);
+			}
+			if (musicAudio) musicAudio.volume = vol;
+		}, 50);
+	}
+
+	function toggleMute() {
+		muted = !muted;
+		if (musicAudio) {
+			musicAudio.volume = muted ? 0 : volume;
+		}
+	}
+
+	function setVolume(e: Event) {
+		const input = e.target as HTMLInputElement;
+		volume = parseFloat(input.value);
+		if (!muted && musicAudio) {
+			musicAudio.volume = volume;
+		}
+	}
 
 	onMount(() => {
 		const hasSeenIntro = localStorage.getItem(STORAGE_KEY) === 'true';
@@ -24,6 +100,17 @@
 			showIntro = false;
 			introHidden = true;
 			revealMain = true;
+			startBonusCatChance();
+
+			const resumeMusic = () => {
+				startMusic();
+				document.removeEventListener('click', resumeMusic);
+				document.removeEventListener('keydown', resumeMusic);
+				document.removeEventListener('touchstart', resumeMusic);
+			};
+			document.addEventListener('click', resumeMusic, { once: true });
+			document.addEventListener('keydown', resumeMusic, { once: true });
+			document.addEventListener('touchstart', resumeMusic, { once: true });
 			return;
 		}
 
@@ -52,15 +139,12 @@
 	async function handleKeyClick() {
 		if (!typingDone || keyPhase !== 'idle' || introFinished) return;
 
-		// Phase 1: key lifts up
 		keyPhase = 'pickup';
 
-		// Phase 2: key moves to right side of screen
 		setTimeout(() => {
 			keyPhase = 'move';
 		}, 600);
 
-		// Phase 3: key turns like an ignition + audio plays
 		setTimeout(async () => {
 			keyPhase = 'turn';
 			try {
@@ -70,22 +154,21 @@
 			}
 		}, 1600);
 
-		// Flash at 8s after audio starts (9.6s after click)
 		setTimeout(() => {
 			flashing = true;
 			ignitionAudio?.pause();
 		}, 9600);
 
-		// Hide intro and reveal main page while flash is fully opaque
 		setTimeout(() => {
 			introHidden = true;
 			showIntro = false;
 			revealMain = true;
 			introFinished = true;
 			localStorage.setItem(STORAGE_KEY, 'true');
+			startMusic();
+			startBonusCatChance();
 		}, 10200);
 
-		// Remove flash overlay after full fade
 		setTimeout(() => {
 			flashing = false;
 		}, 12000);
@@ -138,6 +221,34 @@
 
 {#if revealMain}
 	<section class="main-page" in:fade={{ duration: 700 }}>
+		<div class="marquee-banner">
+			<div class="marquee-track">
+				{#each Array(20) as _}
+					<span>THELONGHAUL</span>
+				{/each}
+			</div>
+		</div>
+
+		<div class="audio-controls">
+			<button class="mute-btn" onclick={toggleMute} aria-label={muted ? 'Unmute' : 'Mute'}>
+				{#if muted}
+					<img src="https://icons.hackclub.com/api/icons/black/checkbox" alt="Muted" class="mute-icon" />
+				{:else}
+					<img src="https://icons.hackclub.com/api/icons/black/checkbox-checked" alt="Unmuted" class="mute-icon" />
+				{/if}
+			</button>
+			<input
+				type="range"
+				min="0"
+				max="1"
+				step="0.01"
+				value={volume}
+				oninput={setVolume}
+				class="volume-slider"
+				aria-label="Volume"
+			/>
+		</div>
+
 		<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer" class="orpheus-link">
 			<img src="/pics/flag-orpheus-top.png" alt="Hack Club" class="orpheus-flag" />
 		</a>
@@ -160,6 +271,17 @@
 			</div>
 			<div class="cat-wrap-hero">
 				<img src="/pics/breakdance cat.gif" alt="Dancing cat" class="dancing-cat" />
+				<img src="/pics/breakdance cat.gif" alt="Dancing cat" class="dancing-cat" />
+				<img src="/pics/breakdance cat.gif" alt="Dancing cat" class="dancing-cat" />
+				{#if bonusCat}
+					<img
+						src="/pics/breakdance cat.gif"
+						alt="Bonus cat!"
+						class="dancing-cat bonus-cat"
+						in:fade={{ duration: 200 }}
+						out:fade={{ duration: 300 }}
+					/>
+				{/if}
 			</div>
 		</div>
 
@@ -450,9 +572,111 @@
 		position: relative;
 	}
 
-	.orpheus-link {
+	/* ── Marquee banner ── */
+
+	.marquee-banner {
 		position: fixed;
 		top: 0;
+		left: 0;
+		right: 0;
+		height: 32px;
+		background: #1a1a1a;
+		overflow: hidden;
+		z-index: 40;
+		display: flex;
+		align-items: center;
+	}
+
+	.marquee-track {
+		display: flex;
+		white-space: nowrap;
+		animation: marquee 20s linear infinite;
+	}
+
+	.marquee-track span {
+		padding: 0 2rem;
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		color: #e8eaed;
+		text-transform: uppercase;
+	}
+
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	/* ── Audio controls ── */
+
+	.audio-controls {
+		position: fixed;
+		top: 38px;
+		right: 16px;
+		z-index: 40;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.mute-btn {
+		background: rgba(0, 0, 0, 0.5);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 8px;
+		padding: 0.3rem 0.5rem;
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1;
+		color: #fff;
+		transition: background 0.2s ease;
+	}
+
+	.mute-icon {
+		width: 20px;
+		height: 20px;
+		display: block;
+		filter: invert(1);
+	}
+
+	.mute-btn:hover {
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.volume-slider {
+		width: 80px;
+		height: 4px;
+		appearance: none;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 2px;
+		outline: none;
+		cursor: pointer;
+	}
+
+	.volume-slider::-webkit-slider-thumb {
+		appearance: none;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background: #fff;
+		cursor: pointer;
+	}
+
+	.volume-slider::-moz-range-thumb {
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background: #fff;
+		border: none;
+		cursor: pointer;
+	}
+
+	.orpheus-link {
+		position: fixed;
+		top: 32px;
 		left: 16px;
 		z-index: 30;
 		line-height: 0;
@@ -478,9 +702,12 @@
 	.cat-wrap-hero {
 		position: absolute;
 		top: 50%;
-		left: 50%;
+		left: 40%;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
+		display: flex;
+		gap: 2rem;
+		align-items: center;
 	}
 
 	.hero {
@@ -645,7 +872,14 @@
 		width: auto;
 		height: auto;
 		image-rendering: pixelated;
-		transform: scale(3);
+		transform: scale(2);
+	}
+
+	.bonus-cat {
+		transform: scale(1);
+		position: absolute;
+		bottom: -20px;
+		right: -40px;
 	}
 
 	/* ── FAQ ── */
