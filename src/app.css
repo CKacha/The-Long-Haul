@@ -1,0 +1,13 @@
+body {
+	margin: 0;
+	background: black;
+	color: white;
+	font-family: Inter, sans-serif;
+}
+
+.primary-btn {
+	background: white;
+	color: black;
+	padding: 10px 16px;
+	border-radius: 999px;
+}
