@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
@@ -223,9 +223,16 @@
 	<section class="main-page" in:fade={{ duration: 700 }}>
 		<div class="marquee-banner">
 			<div class="marquee-track">
-				{#each Array(20) as _}
-					<span>THELONGHAUL</span>
-				{/each}
+				<div class="marquee-set">
+					{#each Array(20) as _}
+						<span>THELONGHAUL</span>
+					{/each}
+				</div>
+				<div class="marquee-set" aria-hidden="true">
+					{#each Array(20) as _}
+						<span>THELONGHAUL</span>
+					{/each}
+				</div>
 			</div>
 		</div>
 
@@ -286,89 +293,155 @@
 		</div>
 
 		<div class="content-section">
-			<div class="content-inner">
-				<div class="premise-card">
-					<h2>Premise</h2>
-					<p>
-						A YSWS where you're only allowed to submit <strong>one</strong> project throughout the
-						entire event. The goal is to go all-in on one massive build and submit it at the end.
-					</p>
-				</div>
-
-				<div class="reward-card">
-					<h2>Rewards</h2>
-					<p>
-						Your payout is affected by project quality, time invested, and sidequests completed.
-						Better projects earn more <strong>gas</strong>, which unlocks higher shop tiers.
-					</p>
-				</div>
+			<div class="premise-block">
+				<h2 class="section-title">Premise</h2>
+				<p>
+					The Long Haul is a month long You Ship We Ship (YSWS), where you are only able to submit
+					<strong>one</strong> project throughout the ENTIRE time period.
+				</p>
+				<p>
+					What's the longest amount of time you spent working on a project? A week? Two?
+					How much polish and functionality were you able to put in it?
+				</p>
+				<p>
+					Well, with The Long Haul, we're aiming to improve on that! Spend one month building
+					one super duper awesome mega project, submit it, and get prizes!
+				</p>
 			</div>
 
-			<div class="info-grid">
-				<div class="info-card">
-					<h3>What do I do?</h3>
-					<p>
-						Make a project! Wanted to make an app that sorts out all of your pictures?
-						Want to make an alarm that forces you to solve math problems to turn off?
-						ANYTHING GOES! (within reason :p)
-					</p>
-				</div>
-				<div class="info-card">
-					<h3>How do?</h3>
-					<p>
-						That depends! What kind of project do you want to make? It can be hardware,
-						software, cad-ware - anything essentially! (as long as it fits the submission
-						guidelines of course)
-					</p>
-				</div>
-				<div class="info-card">
-					<h3>What counts?</h3>
-					<p>TBD! Follow basic Hack Club principals and you should be good.</p>
-				</div>
-				<div class="info-card">
-					<h3> What do I get?</h3>
-					<p>Anything in the shop, as long as you are in its tier and have enough fuel!</p>
-				</div>
+			<div class="info-block">
+				<h3 class="info-heading">What do I do?</h3>
+				<p>
+					Make a project! Wanted to make an app that sorts out all of your pictures?
+					Want to make an alarm that forces you to solve math problems to turn off?
+					ANYTHING GOES! (within reason :p)
+				</p>
 			</div>
 
-			<div class="shop-preview">
-				<h3>Shop items coming soon...</h3>
-				<div class="carousel-track">
-					<div class="carousel-item"> Item 1</div>
-					<div class="carousel-item">Item 2</div>
-					<div class="carousel-item">Item 3</div>
-					<div class="carousel-item">Item 4</div>
-					<div class="carousel-item">Item 1</div>
-					<div class="carousel-item">Item 2</div>
-					<div class="carousel-item">Item 3</div>
-					<div class="carousel-item">Item 4</div>
+			<div class="info-block">
+				<h3 class="info-heading">How do?</h3>
+				<p>
+					That depends! What kind of project do you want to make? It can be hardware,
+					software, cad-ware - anything essentially! (as long as it fits the submission guidelines!)
+				</p>
+			</div>
+
+			<div class="info-block">
+				<h3 class="info-heading">What counts?</h3>
+				<p>
+					Anything! As long as we can verify the amount of time you used,
+					you can make anything! Use
+					<a href="https://lapse.hackclub.com/" target="_blank" rel="noopener noreferrer">Lapse</a> or
+					<a href="https://hackatime.hackclub.com/" target="_blank" rel="noopener noreferrer">Hackatime</a>
+					to track time.
+				</p>
+			</div>
+
+			<div class="info-block">
+				<h3 class="info-heading">What do I get?</h3>
+				<p>
+					Anything in the shop, as long as you are in its tier and have enough fuel!
+					Here's a preview of some of the items:(There will be more in the future!)
+				</p>
+			</div>
+
+			<div class="shop-section">
+				<h3 class="tier-title">Tier 1 </h3>
+				<div class="shop-carousel">
+					<div class="carousel-track tier1-track">
+						<div class="shop-item"><img src="/pics/hotchoco.webp" alt="Hot Choco" /><span class="item-name">Hot Choco</span><span class="item-hours">~2 hrs</span></div>
+						<div class="shop-item"><img src="/pics/chrome.webp" alt="Chrome License" /><span class="item-name">Chrome License</span><span class="item-hours">~2 hrs</span></div>
+						<div class="shop-item"><img src="/pics/ai.webp" alt="AI Credits" /><span class="item-name">AI Credits</span><span class="item-hours">~3 hrs</span></div>
+						<div class="shop-item"><img src="/pics/hcpin.webp" alt="HC Pin" /><span class="item-name">HC Pin</span><span class="item-hours">~4 hrs</span></div>
+						<div class="shop-item"><img src="/pics/nebula.webp" alt="Nebula" /><span class="item-name">Nebula</span><span class="item-hours">~4 hrs</span></div>
+						<div class="shop-item"><img src="/pics/pico9.webp" alt="Pico 9" /><span class="item-name">Pico 9</span><span class="item-hours">~5 hrs</span></div>
+						<div class="shop-item"><img src="/pics/smallblahaj.webp" alt="Small BlÃ¥haj" /><span class="item-name">Small BlÃ¥haj</span><span class="item-hours">~8 hrs</span></div>
+						<div class="shop-item"><img src="/pics/ugee drawing tablet.webp" alt="Ugee Tablet" /><span class="item-name">Ugee Tablet</span><span class="item-hours">~10 hrs</span></div>
+						<div class="shop-item"><img src="/pics/hotchoco.webp" alt="Hot Choco" /><span class="item-name">Hot Choco</span><span class="item-hours">~2 hrs</span></div>
+						<div class="shop-item"><img src="/pics/chrome.webp" alt="Chrome License" /><span class="item-name">Chrome License</span><span class="item-hours">~2 hrs</span></div>
+						<div class="shop-item"><img src="/pics/ai.webp" alt="AI Credits" /><span class="item-name">AI Credits</span><span class="item-hours">~3 hrs</span></div>
+						<div class="shop-item"><img src="/pics/hcpin.webp" alt="HC Pin" /><span class="item-name">HC Pin</span><span class="item-hours">~4 hrs</span></div>
+						<div class="shop-item"><img src="/pics/nebula.webp" alt="Nebula" /><span class="item-name">Nebula</span><span class="item-hours">~4 hrs</span></div>
+						<div class="shop-item"><img src="/pics/pico9.webp" alt="Pico 9" /><span class="item-name">Pico 9</span><span class="item-hours">~5 hrs</span></div>
+						<div class="shop-item"><img src="/pics/smallblahaj.webp" alt="Small BlÃ¥haj" /><span class="item-name">Small BlÃ¥haj</span><span class="item-hours">~8 hrs</span></div>
+						<div class="shop-item"><img src="/pics/ugee drawing tablet.webp" alt="Ugee Tablet" /><span class="item-name">Ugee Tablet</span><span class="item-hours">~10 hrs</span></div>
+					</div>
+				</div>
+
+				<h3 class="tier-title">Tier 2 </h3>
+				<div class="shop-carousel">
+					<div class="carousel-track tier2-track">
+						<div class="shop-item"><img src="/pics/pinecil.webp" alt="Pinecil" /><span class="item-name">Pinecil</span><span class="item-hours">~7 hrs</span></div>
+						<div class="shop-item"><img src="/pics/bigblahaj.webp" alt="Big BlÃ¥haj" /><span class="item-name">Big BlÃ¥haj</span><span class="item-hours">~8 hrs</span></div>
+						<div class="shop-item"><img src="/pics/yubikey.webp" alt="YubiKey" /><span class="item-name">YubiKey</span><span class="item-hours">~15 hrs</span></div>
+						<div class="shop-item"><img src="/pics/flipperzero.webp" alt="Flipper Zero" /><span class="item-name">Flipper Zero</span><span class="item-hours">~50 hrs</span></div>
+						<div class="shop-item"><img src="/pics/a1mini.webp" alt="A1 Mini" /><span class="item-name">A1 Mini</span><span class="item-hours">~50 hrs</span></div>
+						<div class="shop-item"><img src="/pics/macbookneo.webp" alt="MacBook Neo" /><span class="item-name">MacBook Neo</span><span class="item-hours">~125 hrs</span></div>
+						<div class="shop-item"><img src="/pics/ipadair.webp" alt="iPad Air" /><span class="item-name">iPad Air</span><span class="item-hours">~150 hrs</span></div>
+						<div class="shop-item"><img src="/pics/framework12.webp" alt="Framework 12" /><span class="item-name">Framework 12</span><span class="item-hours">~150 hrs</span></div>
+						<div class="shop-item"><img src="/pics/pinecil.webp" alt="Pinecil" /><span class="item-name">Pinecil</span><span class="item-hours">~7 hrs</span></div>
+						<div class="shop-item"><img src="/pics/bigblahaj.webp" alt="Big BlÃ¥haj" /><span class="item-name">Big BlÃ¥haj</span><span class="item-hours">~8 hrs</span></div>
+						<div class="shop-item"><img src="/pics/yubikey.webp" alt="YubiKey" /><span class="item-name">YubiKey</span><span class="item-hours">~15 hrs</span></div>
+						<div class="shop-item"><img src="/pics/flipperzero.webp" alt="Flipper Zero" /><span class="item-name">Flipper Zero</span><span class="item-hours">~50 hrs</span></div>
+						<div class="shop-item"><img src="/pics/a1mini.webp" alt="A1 Mini" /><span class="item-name">A1 Mini</span><span class="item-hours">~50 hrs</span></div>
+						<div class="shop-item"><img src="/pics/macbookneo.webp" alt="MacBook Neo" /><span class="item-name">MacBook Neo</span><span class="item-hours">~125 hrs</span></div>
+						<div class="shop-item"><img src="/pics/ipadair.webp" alt="iPad Air" /><span class="item-name">iPad Air</span><span class="item-hours">~150 hrs</span></div>
+						<div class="shop-item"><img src="/pics/framework12.webp" alt="Framework 12" /><span class="item-name">Framework 12</span><span class="item-hours">~150 hrs</span></div>
+					</div>
+				</div>
+
+				<h3 class="tier-title">Tier 3 </h3>
+				<div class="shop-carousel">
+					<div class="carousel-track tier3-track">
+						<div class="shop-item"><img src="/pics/nthingheaphones.webp" alt="Nothing Headphones" /><span class="item-name">Nothing Headphones</span><span class="item-hours">~50 hrs</span></div>
+						<div class="shop-item"><img src="/pics/a1.webp" alt="A1" /><span class="item-name">A1</span><span class="item-hours">~60 hrs</span></div>
+						<div class="shop-item"><img src="/pics/framework13.webp" alt="Framework 13" /><span class="item-name">Framework 13</span><span class="item-hours">~240 hrs</span></div>
+						<div class="shop-item"><img src="/pics/framework16.webp" alt="Framework 16" /><span class="item-name">Framework 16</span><span class="item-hours">~400 hrs</span></div>
+						<div class="shop-item"><img src="/pics/nthingheaphones.webp" alt="Nothing Headphones" /><span class="item-name">Nothing Headphones</span><span class="item-hours">~50 hrs</span></div>
+						<div class="shop-item"><img src="/pics/a1.webp" alt="A1" /><span class="item-name">A1</span><span class="item-hours">~60 hrs</span></div>
+						<div class="shop-item"><img src="/pics/framework13.webp" alt="Framework 13" /><span class="item-name">Framework 13</span><span class="item-hours">~240 hrs</span></div>
+						<div class="shop-item"><img src="/pics/framework16.webp" alt="Framework 16" /><span class="item-name">Framework 16</span><span class="item-hours">~400 hrs</span></div>
+					</div>
 				</div>
 			</div>
 
 			<div class="faq-section">
-				<div class="faq-box">
-					<h2>FAQ</h2>
+				<h2 class="section-title">FAQ</h2>
 
+				<div class="faq-block">
 					<div class="faq-item">
 						<h4>What is YSWS?</h4>
 						<p>
 							A You Ship We Ship (YSWS) is a program where you take time and create some sort
-							of project and ship it! Then, we'll ship something to you (prizes, food, etc!)
+							of project and ship it for the world to see! Then, we'll ship something to you
+							(stickers, food, and more!).
 						</p>
 					</div>
 
 					<div class="faq-item">
-						<h4>How do I join?</h4>
-						<p>
-							<a href="https://forms.hackclub.com/t/8MSCEBXY2rus" target="_blank" rel="noopener noreferrer">RSVP here!</a>
-						</p>
+						<h4>Who is eligible?</h4>
+						<p>Anybody ages 13 through 18 are eligible to participate!</p>
 					</div>
 
 					<div class="faq-item">
-						<h4>What is Hack Club?</h4>
+						<h4>Is this legit?</h4>
 						<p>
-							Hack Club is a 501(c) non-profit organization aiming to get kids thinking.
+							Yes! Hack Club is the world's largest community of teenage makers, and a 501(c)(3) nonprofit.
+							We've hosted programs like <a href="https://highseas.hackclub.com/" target="_blank" rel="noopener noreferrer">High Seas</a>
+							and <a href="https://summer.hackclub.com/" target="_blank" rel="noopener noreferrer">Summer of Making</a>
+							which gave out prizes for building all sorts of projects. We're supported by donations from
+							companies like GitHub and AMD!
 							<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Check them out here!</a>
+						</p>
+					</div>
+
+					<div class="faq-item">
+						<h4>How does the shop work?</h4>
+						<p>
+							Depending on the amount of time you spent, the number of pit stops you hit up,
+							along with the quality of a project, you'll unlock various tiers of the camper shop!
+							The more time you spend improving your project's quality, you'll get access to a wider
+							and cheaper range of items to get from the shop compared to other projects!
 						</p>
 					</div>
 
@@ -422,7 +495,7 @@
 		scroll-behavior: smooth;
 	}
 
-	/* ── Intro screen ── */
+	/* â”€â”€ Intro screen â”€â”€ */
 
 	.intro-screen {
 		position: fixed;
@@ -511,7 +584,7 @@
 		transform: scale(1.03);
 	}
 
-	/* Phase 1: picked up — lifts and slightly enlarges */
+	/* Phase 1: picked up â€” lifts and slightly enlarges */
 	.key-button.pickup {
 		transform: translateY(-30px) scale(1.1);
 		opacity: 1;
@@ -555,7 +628,7 @@
 		pointer-events: none;
 	}
 
-	/* ── Flash overlay ── */
+	/* â”€â”€ Flash overlay â”€â”€ */
 
 	.flash-overlay {
 		position: fixed;
@@ -566,13 +639,13 @@
 		z-index: 50;
 	}
 
-	/* ── Main page ── */
+	/* â”€â”€ Main page â”€â”€ */
 
 	.main-page {
 		position: relative;
 	}
 
-	/* ── Marquee banner ── */
+	/* â”€â”€ Marquee banner â”€â”€ */
 
 	.marquee-banner {
 		position: fixed;
@@ -589,11 +662,16 @@
 
 	.marquee-track {
 		display: flex;
-		white-space: nowrap;
-		animation: marquee 20s linear infinite;
+		width: max-content;
+		animation: marquee 30s linear infinite;
 	}
 
-	.marquee-track span {
+	.marquee-set {
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	.marquee-set span {
 		padding: 0 2rem;
 		font-size: 0.8rem;
 		font-weight: 700;
@@ -611,7 +689,7 @@
 		}
 	}
 
-	/* ── Audio controls ── */
+	/* â”€â”€ Audio controls â”€â”€ */
 
 	.audio-controls {
 		position: fixed;
@@ -708,11 +786,14 @@
 		display: flex;
 		gap: 2rem;
 		align-items: center;
+		z-index: 1;
 	}
 
 	.hero {
 		max-width: 600px;
 		padding: 31vh 0 0 calc(100vw / 3 * 0.1);
+		position: relative;
+		z-index: 2;
 	}
 
 	.hero h1 {
@@ -763,110 +844,143 @@
 	.content-section {
 		background: linear-gradient(180deg, #496900 0%, #6A9D2A 50%, #8492a6 100%);
 		padding: 4rem 2rem;
+		text-align: center;
 	}
 
-	.content-inner {
-		width: min(1100px, 100%);
-		margin: 0 auto;
+	.section-title {
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		margin: 0 0 1.5rem;
+		letter-spacing: -0.02em;
 	}
 
-	.premise-card,
-	.reward-card {
-		margin-top: 1.5rem;
-		max-width: 760px;
-		padding: 1.25rem 1.35rem;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 18px;
-		backdrop-filter: blur(10px);
+	.premise-block {
+		max-width: 800px;
+		margin: 0 auto 3rem;
 	}
 
-	.premise-card:first-child {
-		margin-top: 0;
+	.premise-block p {
+		color: #e8eaed;
+		line-height: 1.8;
+		font-size: 1.1rem;
+		margin: 0 0 1rem;
 	}
 
-	.premise-card h2,
-	.reward-card h2 {
+	/* â”€â”€ Info blocks â”€â”€ */
+
+	.info-block {
+		max-width: 800px;
+		margin: 0 auto 2rem;
+	}
+
+	.info-heading {
+		font-size: 1.4rem;
 		margin: 0 0 0.5rem;
-		font-size: 1.05rem;
 	}
 
-	.premise-card p,
-	.reward-card p {
-		margin: 0;
+	.info-block p {
 		color: #e8eaed;
 		line-height: 1.7;
-	}
-
-	/* ── Info grid ── */
-
-	.info-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1.25rem;
-		max-width: 760px;
-		margin-top: 3rem;
-	}
-
-	.info-card {
-		padding: 1.25rem 1.35rem;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		border-radius: 14px;
-	}
-
-	.info-card h3 {
-		margin: 0 0 0.5rem;
 		font-size: 1rem;
-	}
-
-	.info-card p {
 		margin: 0;
-		color: #e8eaed;
-		line-height: 1.6;
-		font-size: 0.92rem;
 	}
 
-	/* ── Shop carousel ── */
+	.info-block a {
+		color: #c5e89e;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
 
-	.shop-preview {
-		max-width: 760px;
-		margin-top: 3rem;
+	.info-block a:hover {
+		color: #fff;
+	}
+
+	/* â”€â”€ Shop tiers â”€â”€ */
+
+	.shop-section {
+		max-width: 900px;
+		margin: 2rem auto 0;
+	}
+
+	.tier-title {
+		font-size: 1.3rem;
+		margin: 2.5rem 0 1rem;
+	}
+
+	.tier-rate {
+		font-weight: 400;
+		font-size: 0.9rem;
+		color: #c5e89e;
+	}
+
+	.shop-carousel {
 		overflow: hidden;
-	}
-
-	.shop-preview h3 {
-		margin: 0 0 1rem;
-		font-size: 1rem;
-		color: #e8eaed;
 	}
 
 	.carousel-track {
 		display: flex;
 		gap: 1rem;
-		animation: scroll 12s linear infinite;
+		width: max-content;
 	}
 
-	.carousel-item {
+	.tier1-track {
+		animation: scroll-tier1 25s linear infinite;
+	}
+
+	.tier2-track {
+		animation: scroll-tier2 30s linear infinite;
+	}
+
+	.tier3-track {
+		animation: scroll-tier3 18s linear infinite;
+	}
+
+	.shop-item {
 		flex-shrink: 0;
-		padding: 1rem 1.5rem;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		width: 130px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.75rem;
+		background: rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 12px;
-		font-size: 0.95rem;
-		white-space: nowrap;
 	}
 
-	@keyframes scroll {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-50%);
-		}
+	.shop-item img {
+		width: 80px;
+		height: 80px;
+		object-fit: contain;
+		border-radius: 8px;
 	}
 
-	/* ── Dancing cat ── */
+	.item-name {
+		font-size: 0.78rem;
+		font-weight: 600;
+		text-align: center;
+	}
+
+	.item-hours {
+		font-size: 0.7rem;
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+	@keyframes scroll-tier1 {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(-50%); }
+	}
+
+	@keyframes scroll-tier2 {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(-50%); }
+	}
+
+	@keyframes scroll-tier3 {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(-50%); }
+	}
+
+	/* â”€â”€ Dancing cat â”€â”€ */
 
 	.dancing-cat {
 		width: auto;
@@ -882,23 +996,19 @@
 		right: -40px;
 	}
 
-	/* ── FAQ ── */
+	/* â”€â”€ FAQ â”€â”€ */
 
 	.faq-section {
-		max-width: 760px;
-		margin-top: 3rem;
+		max-width: 800px;
+		margin: 3rem auto 0;
 	}
 
-	.faq-box {
+	.faq-block {
 		background: rgba(255, 255, 255, 0.08);
 		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 16px;
 		padding: 2rem;
-	}
-
-	.faq-box h2 {
-		margin: 0 0 1.25rem;
-		font-size: 1.4rem;
+		text-align: left;
 	}
 
 	.faq-item {
@@ -913,15 +1023,15 @@
 
 	.faq-item h4 {
 		margin: 0 0 0.4rem;
-		font-size: 0.95rem;
-		font-weight: 600;
+		font-size: 1.05rem;
+		font-weight: 700;
 	}
 
 	.faq-item p {
 		margin: 0;
 		color: #e0e4e8;
 		line-height: 1.6;
-		font-size: 0.9rem;
+		font-size: 0.92rem;
 	}
 
 	.faq-item a {
@@ -934,7 +1044,7 @@
 		color: #fff;
 	}
 
-	/* ── Footer ── */
+	/* â”€â”€ Footer â”€â”€ */
 
 	.site-footer {
 		background: #8492a6;
@@ -1006,7 +1116,7 @@
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	/* ── Keyframes ── */
+	/* â”€â”€ Keyframes â”€â”€ */
 
 	@keyframes blink {
 		0%, 49% {
@@ -1032,7 +1142,7 @@
 		}
 	}
 
-	/* ── Mobile ── */
+	/* â”€â”€ Mobile â”€â”€ */
 
 	@media (max-width: 820px) {
 		.intro-content {
@@ -1066,13 +1176,18 @@
 			width: 80px;
 		}
 
-		.info-grid {
-			grid-template-columns: 1fr;
-		}
-
 		.dancing-cat {
 			transform: scale(2);
 			margin: 2.5rem 0;
+		}
+
+		.shop-item {
+			width: 110px;
+		}
+
+		.shop-item img {
+			width: 60px;
+			height: 60px;
 		}
 
 		.footer-inner {
