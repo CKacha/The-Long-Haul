@@ -144,12 +144,22 @@
 
 		<div class="hero-section">
 			<div class="hero">
-				<p class="eyebrow">Hack Club YSWS Proposal</p>
 				<h1>The Long Haul</h1>
 				<p class="tagline">
-					Build one giant project across the whole YSWS. No hopping between ideas. No tiny spam
-					submits. Just one serious journey.
+					Build one giant project across a WHOLE MONTH! No hopping between ideas(maybe), just one long haul.
 				</p>
+				<p class="rsvp-prompt">Interested? RSVP!</p>
+				<a
+					href="https://forms.hackclub.com/t/8MSCEBXY2rus"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="rsvp-button"
+				>
+					RSVP
+				</a>
+			</div>
+			<div class="cat-wrap-hero">
+				<img src="/pics/breakdance cat.gif" alt="Dancing cat" class="dancing-cat" />
 			</div>
 		</div>
 
@@ -171,18 +181,110 @@
 					</p>
 				</div>
 			</div>
+
+			<div class="info-grid">
+				<div class="info-card">
+					<h3>What do I do?</h3>
+					<p>
+						Make a project! Wanted to make an app that sorts out all of your pictures?
+						Want to make an alarm that forces you to solve math problems to turn off?
+						ANYTHING GOES! (within reason :p)
+					</p>
+				</div>
+				<div class="info-card">
+					<h3>How do?</h3>
+					<p>
+						That depends! What kind of project do you want to make? It can be hardware,
+						software, cad-ware - anything essentially! (as long as it fits the submission
+						guidelines of course)
+					</p>
+				</div>
+				<div class="info-card">
+					<h3>What counts?</h3>
+					<p>TBD! Follow basic Hack Club principals and you should be good.</p>
+				</div>
+				<div class="info-card">
+					<h3> What do I get?</h3>
+					<p>Anything in the shop, as long as you are in its tier and have enough fuel!</p>
+				</div>
+			</div>
+
+			<div class="shop-preview">
+				<h3>Shop items coming soon...</h3>
+				<div class="carousel-track">
+					<div class="carousel-item"> Item 1</div>
+					<div class="carousel-item">Item 2</div>
+					<div class="carousel-item">Item 3</div>
+					<div class="carousel-item">Item 4</div>
+					<div class="carousel-item">Item 1</div>
+					<div class="carousel-item">Item 2</div>
+					<div class="carousel-item">Item 3</div>
+					<div class="carousel-item">Item 4</div>
+				</div>
+			</div>
+
+			<div class="faq-section">
+				<div class="faq-box">
+					<h2>FAQ</h2>
+
+					<div class="faq-item">
+						<h4>What is YSWS?</h4>
+						<p>
+							A You Ship We Ship (YSWS) is a program where you take time and create some sort
+							of project and ship it! Then, we'll ship something to you (prizes, food, etc!)
+						</p>
+					</div>
+
+					<div class="faq-item">
+						<h4>How do I join?</h4>
+						<p>
+							<a href="https://forms.hackclub.com/t/8MSCEBXY2rus" target="_blank" rel="noopener noreferrer">RSVP here!</a>
+						</p>
+					</div>
+
+					<div class="faq-item">
+						<h4>What is Hack Club?</h4>
+						<p>
+							Hack Club is a 501(c) non-profit organization aiming to get kids thinking.
+							<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Check them out here!</a>
+						</p>
+					</div>
+
+					<div class="faq-item">
+						<h4>I need help!</h4>
+						<p>
+							No problem! Join the
+							<a href="https://hackclub.enterprise.slack.com/archives/C0AN2GXJ23F" target="_blank" rel="noopener noreferrer">FAQ channel</a>,
+							or DM
+							<a href="https://hackclub.slack.com/team/U0828FYS2UC" target="_blank" rel="noopener noreferrer">@Iamalive</a>
+							on the Slack!
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<footer class="site-footer">
-			<p class="footer-initiative">A Hack Club initiative</p>
-			<p class="footer-legal">
-				The Hack Foundation is a 501(c)(3) non-profit organization d.b.a. Hack Club (EIN: 81-2908499)
-			</p>
-			<p class="footer-links">
-				<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">About Hack Club</a>
-			</p>
-			<p class="footer-note">Dino imagery from rawr.hackclub.com!</p>
-			<p class="footer-credit">By @Ckacha. Open source.</p>
+			<div class="footer-inner">
+				<a href="https://hackclub.com/" class="footer-banner">
+					<img
+						src="https://assets.hackclub.com/banners/2026.svg"
+						alt="Hack Club"
+						class="hc-banner"
+					/>
+				</a>
+				<div class="footer-text">
+					<p class="footer-initiative">A Hack Club initiative</p>
+					<p class="footer-legal">
+						The Hack Foundation is a 501(c)(3) non-profit organization d.b.a. Hack Club (EIN: 81-2908499)
+					</p>
+					<p class="footer-links">
+						<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">About Hack Club</a>
+					</p>
+					<p class="footer-note">Dino imagery from rawr.hackclub.com!</p>
+					<p class="footer-credit">By @Ckacha.</p>
+				</div>
+			</div>
 		</footer>
 	</section>
 {/if}
@@ -191,7 +293,7 @@
 	:global(html, body) {
 		margin: 0;
 		padding: 0;
-		background: #000;
+		background: #6A9D2A;
 		color: #f5f5f5;
 		font-family:
 			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -367,25 +469,23 @@
 		transform: scale(1.05);
 	}
 
-	.hero-section {
-		min-height: 100vh;
-		background: url('/pics/background.png') center / cover no-repeat;
-		display: flex;
-		align-items: center;
-		padding: 5rem 2rem;
+    .hero-section {
+        height: 100vh;
+        background: url('/pics/background.png') center / cover no-repeat;
+        position: relative;
+    }
+
+	.cat-wrap-hero {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
 	}
 
 	.hero {
-		width: min(1100px, 100%);
-		margin: 0 auto;
-	}
-
-	.eyebrow {
-		color: #8b949e;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		font-size: 0.8rem;
-		margin-bottom: 1rem;
+		max-width: 600px;
+		padding: 31vh 0 0 calc(100vw / 3 * 0.1);
 	}
 
 	.hero h1 {
@@ -403,8 +503,38 @@
 		color: #d0d7de;
 	}
 
+	.rsvp-prompt {
+		margin: 2rem 0 0.75rem;
+		font-size: 1.05rem;
+		color: #e8eaed;
+		font-weight: 500;
+	}
+
+	.rsvp-button {
+		display: inline-block;
+		padding: 1rem 3.5rem;
+		background: #6A9D2A;
+		color: #fff;
+		font-size: 1.15rem;
+		font-weight: 600;
+		text-decoration: none;
+		border-radius: 12px;
+		border: 2px solid rgba(255, 255, 255, 0.4);
+		letter-spacing: 0.04em;
+		transition:
+			background 0.2s ease,
+			transform 0.15s ease,
+			border-color 0.2s ease;
+	}
+
+	.rsvp-button:hover {
+		background: #5a8a22;
+		border-color: rgba(255, 255, 255, 0.7);
+		transform: scale(1.03);
+	}
+
 	.content-section {
-		background: linear-gradient(180deg, #6A9D2A 0%, #496900 100%);
+		background: linear-gradient(180deg, #496900 0%, #6A9D2A 50%, #8492a6 100%);
 		padding: 4rem 2rem;
 	}
 
@@ -441,13 +571,164 @@
 		line-height: 1.7;
 	}
 
+	/* ── Info grid ── */
+
+	.info-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+		max-width: 760px;
+		margin-top: 3rem;
+	}
+
+	.info-card {
+		padding: 1.25rem 1.35rem;
+		background: rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		border-radius: 14px;
+	}
+
+	.info-card h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1rem;
+	}
+
+	.info-card p {
+		margin: 0;
+		color: #e8eaed;
+		line-height: 1.6;
+		font-size: 0.92rem;
+	}
+
+	/* ── Shop carousel ── */
+
+	.shop-preview {
+		max-width: 760px;
+		margin-top: 3rem;
+		overflow: hidden;
+	}
+
+	.shop-preview h3 {
+		margin: 0 0 1rem;
+		font-size: 1rem;
+		color: #e8eaed;
+	}
+
+	.carousel-track {
+		display: flex;
+		gap: 1rem;
+		animation: scroll 12s linear infinite;
+	}
+
+	.carousel-item {
+		flex-shrink: 0;
+		padding: 1rem 1.5rem;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 12px;
+		font-size: 0.95rem;
+		white-space: nowrap;
+	}
+
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	/* ── Dancing cat ── */
+
+	.dancing-cat {
+		width: auto;
+		height: auto;
+		image-rendering: pixelated;
+		transform: scale(3);
+	}
+
+	/* ── FAQ ── */
+
+	.faq-section {
+		max-width: 760px;
+		margin-top: 3rem;
+	}
+
+	.faq-box {
+		background: rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		border-radius: 16px;
+		padding: 2rem;
+	}
+
+	.faq-box h2 {
+		margin: 0 0 1.25rem;
+		font-size: 1.4rem;
+	}
+
+	.faq-item {
+		padding: 1rem 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.faq-item:first-of-type {
+		border-top: none;
+		padding-top: 0;
+	}
+
+	.faq-item h4 {
+		margin: 0 0 0.4rem;
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+
+	.faq-item p {
+		margin: 0;
+		color: #e0e4e8;
+		line-height: 1.6;
+		font-size: 0.9rem;
+	}
+
+	.faq-item a {
+		color: #c5e89e;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.faq-item a:hover {
+		color: #fff;
+	}
+
 	/* ── Footer ── */
 
 	.site-footer {
 		background: #8492a6;
 		padding: 2.5rem 2rem;
-		text-align: center;
 		color: #fff;
+	}
+
+	.footer-inner {
+		width: min(1100px, 100%);
+		margin: 0 auto;
+		display: flex;
+		align-items: flex-start;
+		gap: 2rem;
+	}
+
+	.footer-banner {
+		flex-shrink: 0;
+		line-height: 0;
+	}
+
+	.hc-banner {
+		width: 180px;
+		height: auto;
+	}
+
+	.footer-text {
+		text-align: center;
+		flex: 1;
 	}
 
 	.footer-initiative {
@@ -549,6 +830,25 @@
 
 		.orpheus-flag {
 			width: 80px;
+		}
+
+		.info-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.dancing-cat {
+			transform: scale(2);
+			margin: 2.5rem 0;
+		}
+
+		.footer-inner {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+
+		.hc-banner {
+			width: 140px;
 		}
 	}
 </style>
