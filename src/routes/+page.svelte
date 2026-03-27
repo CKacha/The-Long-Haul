@@ -495,8 +495,6 @@
 		scroll-behavior: smooth;
 	}
 
-	/* â”€â”€ Intro screen â”€â”€ */
-
 	.intro-screen {
 		position: fixed;
 		inset: 0;
@@ -584,7 +582,7 @@
 		transform: scale(1.03);
 	}
 
-	/* Phase 1: picked up â€” lifts and slightly enlarges */
+	/* keyup key */
 	.key-button.pickup {
 		transform: translateY(-30px) scale(1.1);
 		opacity: 1;
@@ -593,7 +591,7 @@
 		transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 	}
 
-	/* Phase 2: moves to right side of viewport */
+	/* moves to right side of viewport */
 	.key-button.move {
 		position: fixed;
 		top: 50%;
@@ -608,7 +606,7 @@
 			transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 	}
 
-	/* Phase 3: turns like an ignition key */
+	/* turn key */
 	.key-button.turn {
 		position: fixed;
 		top: 50%;
@@ -628,7 +626,7 @@
 		pointer-events: none;
 	}
 
-	/* â”€â”€ Flash overlay â”€â”€ */
+	/* Flash overlay */
 
 	.flash-overlay {
 		position: fixed;
@@ -639,13 +637,13 @@
 		z-index: 50;
 	}
 
-	/* â”€â”€ Main page â”€â”€ */
+	/* Main page */
 
 	.main-page {
 		position: relative;
 	}
 
-	/* â”€â”€ Marquee banner â”€â”€ */
+	/* Marquee banner*/
 
 	.marquee-banner {
 		position: fixed;
@@ -689,7 +687,7 @@
 		}
 	}
 
-	/* â”€â”€ Audio controls â”€â”€ */
+	/* Audio controls */
 
 	.audio-controls {
 		position: fixed;
@@ -865,7 +863,7 @@
 		margin: 0 0 1rem;
 	}
 
-	/* â”€â”€ Info blocks â”€â”€ */
+	/* Info blocks */
 
 	.info-block {
 		max-width: 800px;
@@ -894,7 +892,7 @@
 		color: #fff;
 	}
 
-	/* â”€â”€ Shop tiers â”€â”€ */
+	/* Shop tiers */
 
 	.shop-section {
 		max-width: 900px;
@@ -980,7 +978,7 @@
 		100% { transform: translateX(-50%); }
 	}
 
-	/* â”€â”€ Dancing cat â”€â”€ */
+	/* Dancing cat */
 
 	.dancing-cat {
 		width: auto;
@@ -996,7 +994,7 @@
 		right: -40px;
 	}
 
-	/* â”€â”€ FAQ â”€â”€ */
+	/* FAQ */
 
 	.faq-section {
 		max-width: 800px;
@@ -1044,7 +1042,7 @@
 		color: #fff;
 	}
 
-	/* â”€â”€ Footer â”€â”€ */
+	/* Footers */
 
 	.site-footer {
 		background: #8492a6;
@@ -1116,7 +1114,7 @@
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	/* â”€â”€ Keyframes â”€â”€ */
+	/* Keyframes */
 
 	@keyframes blink {
 		0%, 49% {
@@ -1142,7 +1140,7 @@
 		}
 	}
 
-	/* â”€â”€ Mobile â”€â”€ */
+	/* Mobile */
 
 	@media (max-width: 820px) {
 		.intro-content {
