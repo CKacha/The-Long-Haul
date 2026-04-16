@@ -4,7 +4,6 @@ Total days: 3 weeks and 5 days (26 days total)
 Hackcraft
     something most people want 
 
-
 Siege 
     long term
     about $800 over the course of 10 weeks 10 hours = 100x85 = 850 so covers 
@@ -16,16 +15,4 @@ Siege
 Jumpstart
     simple starter project to a concept 
 
-
-Start Date: June 22, 2026
-End Date: July 17, 2026
-Unfortunately, these are hard start and end dates and we're unable to have any flexibility around them because of constraints with our intern housing.
-
-Hack Club HQ in Shelburne, Vermont, USA (may be subject to change this summer.)
-
-Please note that interns will not be allowed to travel to an in-person Hack Club hackathon 
-during the period of your internship! This is only a month-long program, and we want you to be able to experience it fully by being in-person the whole time 
-    NO FALLOUT(July 1-7) shoot
-    Horizons yes(June 19-21)
-    Stasis yes (May 15–18th)
-    Opensauce yes(july 17-19)
+didn't get the internship sucks to suck i guess

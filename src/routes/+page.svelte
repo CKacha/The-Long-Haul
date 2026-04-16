@@ -485,15 +485,7 @@
 {/if}
 
 <style>
-	:global(html, body) {
-		margin: 0;
-		padding: 0;
-		background: #6A9D2A;
-		color: #f5f5f5;
-		font-family:
-			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-		scroll-behavior: smooth;
-	}
+	/* â”€â”€ Intro screen â”€â”€ */
 
 	.intro-screen {
 		position: fixed;
@@ -582,7 +574,11 @@
 		transform: scale(1.03);
 	}
 
-	/* keyup key */
+
+	/* Key animation ts PMOOOOOOOO 
+	Gotta fix it more soon */
+
+	/* Picking up & makes it a lil bit bigger */
 	.key-button.pickup {
 		transform: translateY(-30px) scale(1.1);
 		opacity: 1;
@@ -591,7 +587,7 @@
 		transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 	}
 
-	/* moves to right side of viewport */
+	/* Move key towards the right */
 	.key-button.move {
 		position: fixed;
 		top: 50%;
@@ -606,7 +602,8 @@
 			transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 	}
 
-	/* turn key */
+	/* PAIN PAIN PAIN PAIN
+	aka ignition turning */
 	.key-button.turn {
 		position: fixed;
 		top: 50%;
@@ -626,8 +623,6 @@
 		pointer-events: none;
 	}
 
-	/* Flash overlay */
-
 	.flash-overlay {
 		position: fixed;
 		inset: 0;
@@ -637,13 +632,9 @@
 		z-index: 50;
 	}
 
-	/* Main page */
-
 	.main-page {
 		position: relative;
 	}
-
-	/* Marquee banner*/
 
 	.marquee-banner {
 		position: fixed;
@@ -686,8 +677,6 @@
 			transform: translateX(-50%);
 		}
 	}
-
-	/* Audio controls */
 
 	.audio-controls {
 		position: fixed;
@@ -863,8 +852,6 @@
 		margin: 0 0 1rem;
 	}
 
-	/* Info blocks */
-
 	.info-block {
 		max-width: 800px;
 		margin: 0 auto 2rem;
@@ -891,8 +878,6 @@
 	.info-block a:hover {
 		color: #fff;
 	}
-
-	/* Shop tiers */
 
 	.shop-section {
 		max-width: 900px;
@@ -978,8 +963,6 @@
 		100% { transform: translateX(-50%); }
 	}
 
-	/* Dancing cat */
-
 	.dancing-cat {
 		width: auto;
 		height: auto;
@@ -993,8 +976,6 @@
 		bottom: -20px;
 		right: -40px;
 	}
-
-	/* FAQ */
 
 	.faq-section {
 		max-width: 800px;
@@ -1041,8 +1022,6 @@
 	.faq-item a:hover {
 		color: #fff;
 	}
-
-	/* Footers */
 
 	.site-footer {
 		background: #8492a6;
@@ -1114,8 +1093,6 @@
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	/* Keyframes */
-
 	@keyframes blink {
 		0%, 49% {
 			opacity: 1;
@@ -1139,8 +1116,6 @@
 			opacity: 0;
 		}
 	}
-
-	/* Mobile */
 
 	@media (max-width: 820px) {
 		.intro-content {

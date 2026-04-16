@@ -56,6 +56,29 @@ framework13 - $1200
 framework16 - $2000
 nothingheadphone - $250
 
+faq channel: https://hackclub.enterprise.slack.com/archives/C0AN2GXJ23F
+iamalive: https://hackclub.slack.com/team/U0828FYS2UC
+
+figure out airtable and project creation
+how the hell do i make and use a server for hecks sake
+
+anyways need to fix up the site now:
+
+main page
+    login through hack club auth
+    shop item rework
+    better themeing
+
+add dashboard
+    project creation
+    themeing
+
+shop
+    items(take from the main page)
+
+
+faq
+    add this(from the main page, maybe remove/modify either pages)
 
 FAQ: 
 q: What is ysws?
@@ -68,12 +91,4 @@ q: How does the shop work?
 a: Depending the amount of time you spent, the number of pit spots you hit up, along with the quality of a project, you'll unlock various tiers of the camper shop! The more time you spend improving your project's quality, you'll get access to a wider and cheaper range of items to get from the shop compared to other projects! 
 q: I need help!
 a: No problem! Join the slack faq channel(hyperlink), or DM @Iamalive(hyperlink) on the slack!
-
-faq channel: https://hackclub.enterprise.slack.com/archives/C0AN2GXJ23F
-iamalive: https://hackclub.slack.com/team/U0828FYS2UC
-
-
-SHOP
-
-    ITEMS
 
