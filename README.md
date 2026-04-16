@@ -1,6 +1,8 @@
 # The Long Haul
 
-A Hack Club ysws proposal for the 2026 internships!
+The Long Haul was my ysws proposal for the Hack Club 2026 internships :p
+
+Didn't get in but oh welp
 
 ## Self-hosting
 
